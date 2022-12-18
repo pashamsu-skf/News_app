@@ -1,0 +1,95 @@
+
+
+u1  = User.objects.create_user(‘Pavel’)
+
+u2 = User.objects.create_user(‘Masha’)
+
+Author.objects.create(authorUser=u1)
+
+Author.objects.create(authorUser=u2)
+
+Category.objects.create(name=’Sport’)
+
+Category.objects.create(name=’Art’)
+
+Category.objects.create(name=’Health’)
+
+Category.objects.create(name=’Music’)
+
+author1 = Author.objects.get(id=1)
+
+Post.objects.create(author=author1, categoryType=’AR’, title=’Физкультура полезна’, text=’Тут длинная статья о пользе физкультуры’)
+
+Post.objects.create(author=author1, categoryType=’AR’, title=’Искусство и кино, text=’Тут длинная статья о кино как искусстве’)
+
+author2 = Author.objects.get(id=2)
+
+Post.objects.create(author=author2, categoryType=’NW’, title=’Новость о концерте’, text=’Новость о концерте любимой группы’)
+
+Post.objects
+
+Post.objects.get(id=1).postCategory.add(Category.objects.get(id=1))
+
+Post.objects.get(id=1).postCategory.add(Category.objects.get(id= 3))
+
+Post.objects.get(id=2).postCategory.add(Category.objects.get(id=2))
+
+Post.objects.get(id=3).postCategory.add(Category.objects.get(id=4))
+
+Comment.objects.create(commentPost=Post.objects.get(id=1), commentUser=Author.objects.get(id=2), text=’Da ladno’)
+
+Comment.objects.create(commentPost=Post.objects.get(id=1), commentUser=Author.objects.get(id=1), text=’Шоколадно’)
+
+Comment.objects.create(commentPost=Post.objects.get(id=2), commentUser=Author.objects.get(id=2), text=’Big Bang Theory – the Best’)
+
+Comment.objects.create(commentPost=Post.objects.get(id=3), commentUser=Author.objects.get(id=1), text=’Anacondaz!’)
+
+Post.objects.get(id=1).dislike()
+
+Post.objects.get(id=2).like()
+
+Post.objects.get(id=3).like()
+
+Comment.objects.get(id=1).like()
+
+Comment.objects.get(id=1).like()
+
+Comment.objects.get(id=2).dislike()
+
+Comment.objects.get(id=3).like()
+
+Comment.objects.get(id=4).dislike()
+
+Comment.objects.get(id=4).dislike()
+
+Comment.objects.get(id=4).dislike()
+
+a1 = Author.objects.get(id=1)
+
+a1.update_rating()
+
+a2 = Author.objects.get(id=2)
+
+a2.update_rating()
+
+HRate = Author.objects.order_by(‘-ratingAuthor’)[:1]
+
+for i in Hrate:
+
+    i.authorUser.username
+
+    i.ratingAuthor
+
+BestArt = Post.objects.order_by(‘-rating’)[:1]
+
+for i in Hrate:
+
+	i.dateCreation
+
+	i.author.username
+
+	i.rating
+
+	i.title
+
+i	.preview()
